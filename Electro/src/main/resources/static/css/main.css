@@ -1,0 +1,67 @@
+html body {
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+}
+
+.header {
+    height: 8%;
+    background-color: blue;
+    justify-content: center;
+}
+
+.header-link {
+    color: white;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    height: 100%;
+    width: 100px;
+}
+
+.header-link:hover {
+    cursor:pointer;
+    background-color: blueviolet;
+}
+
+.main-content {
+    font-size: 15px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    justify-content: center;
+    align-items: center;
+    height: 92%;
+}
+.main-page {
+    font-size: 30px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    justify-content: center;
+    align-items: center;
+    height: 0%;
+    color: blue;
+    margin: 30px;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.box {
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    background-image: url(https://statics.quattroruote.it/content/dam/quattroruote/it/news/nuovi-modelli/2020/12/31/aspark_owl_inizio_vendite_hypercar_elettrica_50_esemplari_prezzo_immagini_caratteristiche/gallery/rbig/2020-aspark-owl-01.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.spacing {
+    margin: 35px;
+}

@@ -1,15 +1,13 @@
-package com.ElectrifyDealership.EYD;
+package com.ElectrifyDealer.Electro;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
-
-import com.ElectrifyDealership.EydApplication;
 
 public class ServletInitializer extends SpringBootServletInitializer {
 
 	@Override
 	protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-		return application.sources(EydApplication.class);
+		return application.sources(ElectroApplication.class);
 	}
 
 }

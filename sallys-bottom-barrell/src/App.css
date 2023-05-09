@@ -1,0 +1,9 @@
+.main-content {
+  height: 92%;
+  justify-content: center;
+  align-items: center;
+}
+
+.third-width {
+  width: 33%;
+}

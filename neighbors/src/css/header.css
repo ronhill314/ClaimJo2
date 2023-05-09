@@ -1,0 +1,41 @@
+.cart-icon {
+    height: 50px;
+    width: 50px;
+}
+
+.header {
+    height: 8%;
+    background-color: rgb(137, 221, 244);
+    color: rgb(137, 221, 244);
+    justify-content: center;
+    align-items: center;
+}
+
+
+.header-link {
+    margin: auto;
+    cursor: pointer;
+    color: black;
+    text-decoration: none;
+}
+
+
+.logo {
+    height: 100%;
+    max-width: 74px;
+}
+
+.cart-items-count {
+    background-color: black;
+    color: blue;
+    font-size: 12px;
+    font-weight: 900;
+    border-radius: 50px;
+    height: 20px;
+    width: 20px;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    margin-left: 35px;
+}
+
