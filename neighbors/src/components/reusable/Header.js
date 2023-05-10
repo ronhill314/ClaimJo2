@@ -8,28 +8,33 @@ import '../../css/header.css'
 
 function Header(props) {
 
-  const navigator = useNavigate
+  const navigator = useNavigate()
   const signOut = () => {
     localStorage.removeItem("emailCookie")
     props.setUser({
-      email: "",
-      password:""
+     
   })
     navigator("/")
   }
 
   const renderHeader = () => {
+    console.log(props.user)
 
-    if (props.user !== undefined) {
+    const email = localStorage.getItem("emailCookie")
+
+    if (email !== null){
       return (
         <div className='flex-row header'>
           <div className='third-width'>
             <a href="/"><img className='logo' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIUFPLdUlYaFE0ExYbLRGiPuODUy7vmaHSvQ&usqp=CAU" /></a>
           </div>
           <div className='third-width justify-center'>
+            <a className='header-link' href="/aboutNeighbors">About Neighbors</a>
             <a className='header-link' href="/">Home</a>
+            <a className='header-link' href="/vendor">Become A Vendor </a>
+            <a className='header-link' href="/events">Events</a>
             <a href="/cart" className='header-link'>
-              <div className='cart-items-count'>{props.user.cart.itemsInCart.length}</div>
+              <div className='cart-items-count'>{}</div>
             </a>
             <div className='header-link' onClick={signOut}>Sign Out</div>
           </div>
@@ -41,15 +46,17 @@ function Header(props) {
       return (
         <div className='flex-row header'>
           <div className='third-width'>
-            <a href="/"><img className='logo' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIUFPLdUlYaFE0ExYbLRGiPuODUy7vmaHSvQ&usqp=CAU" /></a>
+            <a href="/"><img className='logo justify-left' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRIUFPLdUlYaFE0ExYbLRGiPuODUy7vmaHSvQ&usqp=CAU" /></a>
           </div>
-          <div className='third-width justify-center'>
+          <div className='third-width justify-center '>
+            <a className='header-link' href="/aboutNeighbors">About Neighbors</a>
             <a className='header-link' href="/sign-up">Join the Community</a>
             <a className='header-link' href="/">Home</a>
-            <a className='header-link' href="/sign-in">Sign In</a>
+            <a className='header-link' href="/vendor">Become A Vendor </a>
+            <a className='header-link' href="/events">Events</a>
           </div>
           <div className='third-width justify-right'>
-            <a className='header-link' href="/specials"></a>
+          <a className='header-link headline' href="/sign-in">Sign In</a>
           </div>
         </div>
       )

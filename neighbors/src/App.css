@@ -5,7 +5,9 @@
 }
 
 .third-width {
-  width: 33%;
+  width: 50%;
+  margin-left: 50px;
+  margin-right: 50px;
 }
 
 body {

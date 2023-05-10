@@ -2,7 +2,8 @@ import axios from 'axios';
 import React from 'react'
 import { useNavigate } from 'react-router';
 
-function SignInBox(props) {
+
+function VendorBox(props) {
 
     const navigator = useNavigate()
 
@@ -15,7 +16,7 @@ function SignInBox(props) {
     }
 
     const submitHandler = () => {
-        axios.post("http://localhost:8080/user/signIn", props.user)
+        axios.post("http://localhost:8080/user/vendor", props.user)
         .then((response) => {
             localStorage.setItem("emailCookie", response.data.email)
             props.setUser(response.data)
@@ -28,7 +29,7 @@ function SignInBox(props) {
 
     return (
         <div className='sign-up-box flex-col'>
-            <h1 className='h1'>Sign Up Neighbor</h1>
+            <h1 className='h1'>Vendor Registration</h1>
             <div className='flex-row flex-col'>
             <div className='form-input-container'>
                     <div>Name</div>
@@ -43,12 +44,17 @@ function SignInBox(props) {
                     <input name="location" type="location" value={props.user.location} className='form-input' onChange={changeHandler} />
                 </div>
                 <div className='form-input-container'>
+                    <div>Company Name</div>
+                    <input name="company name" type="company name" value={props.user.companyName} className='form-input' onChange={changeHandler} />
+                </div>
+                <div className='form-input-container'>
                     <div>Password</div>
                     <input name="password" type="password" value={props.user.password} className='form-input' onChange={changeHandler} />
                 </div>
             </div>
             <button class="button-53" role="button" onClick={submitHandler} >Submit!!</button>
         </div>
-    )}
+    )
+}
 
-export default SignInBox
+export default VendorBox

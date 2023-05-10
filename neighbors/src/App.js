@@ -8,6 +8,9 @@ import Cart from '../src/components/pages/Cart'
 import SignIn from '../src/components/pages/SignIn'
 import SignUp from '../src/components/pages/SignUp'
 import { useEffect } from 'react'
+import AboutNeighbors from './components/pages/AboutNeighbors';
+import Vendor from './components/pages/Vendor';
+import Events from './components/pages/Events';
 
 function App() {
   const [user, setUser] = useState ({
@@ -20,15 +23,18 @@ function App() {
   useEffect (() => {
     const email = localStorage.getItem("emailCookie")
 
+    if (email !== null){
+
     axios.get(`http://localhost:8080/user/findUserByEmail/${email}`)
       .then((response) => {
         setUser(response.data)
       })
       .catch((e) => {
         console.log(e)
-      })
+      })}
   }, [updateUser])
 
+ 
   return (
     <PageWrapper
       user={user}
@@ -38,6 +44,9 @@ function App() {
       <Route path="/" element={<Home user={user} />} />
         <Route path="/sign-in" element={<SignIn user={user} setUser={setUser} />} />
         <Route path="/sign-up" element={<SignUp user={user} setUser={setUser} />} />
+        <Route path="/aboutNeighbors" element={<AboutNeighbors user={user} setUser={setUser} />} />
+        <Route path="/vendor" element={<Vendor user={user} setUser={setUser} />} />
+        <Route path="/events" element={<Events user={user} setUser={setUser} />} />
         <Route path="/cart" element={<Cart user={user} setUser={setUser} setUpdateUser={setUpdateUser} />} />
       </Routes>
     </PageWrapper>
