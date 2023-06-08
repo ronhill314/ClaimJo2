@@ -3,7 +3,7 @@ import VendorBox from '../reusable/VendorBox'
 
 function Vendor(props) {
   return (
-    <VendorBox user ={props.user} setUser={props.setUser} />
+    <VendorBox vendor ={props.vendor} setVendor={props.setVendor} />
   )
 }
 

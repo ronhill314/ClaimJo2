@@ -1,0 +1,10 @@
+.user-box {
+    border: 10px solid rgb(137, 221, 244);
+    color: rgb(137, 221, 244);
+    border-radius: 8px;
+    height: 20%;
+    min-height: 600px;
+    width: 600%;
+    align-items: center;
+    background: black;
+}

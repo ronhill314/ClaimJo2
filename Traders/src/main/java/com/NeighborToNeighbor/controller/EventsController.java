@@ -13,18 +13,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.NeighborToNeighbor.entity.Products;
-import com.NeighborToNeighbor.service.ProductService;
+import com.NeighborToNeighbor.entity.Events;
+import com.NeighborToNeighbor.service.EventsService;
+
 
 @RestController
-
-@RequestMapping(value="/product")
-
+@RequestMapping(value="/events")
 @CrossOrigin("*")
-public class ProductController {
+public class EventsController {
+    
     @Autowired
-    ProductService productService;
-
+    EventsService eventsService;
 
     @RequestMapping(
     		value = "/create",
@@ -33,11 +32,11 @@ public class ProductController {
     		method = RequestMethod.POST
     )
    
-    public ResponseEntity<Object> create(@RequestBody Products product) {
+    public ResponseEntity<Object> create(@RequestBody Events events) {
 
         try {
-            Products savedProducts = productService.save(product);
-            return new ResponseEntity<Object>(savedProducts, HttpStatus.CREATED);
+            Events savedEvents = eventsService.save(events);
+            return new ResponseEntity<Object>(savedEvents, HttpStatus.CREATED);
         } catch (Exception e) {
             System.out.println(e);
             return new ResponseEntity<Object>(e, HttpStatus.BAD_REQUEST);
@@ -49,15 +48,15 @@ public class ProductController {
     }
 
     @RequestMapping(
-        value="/findProductsById/{id}",
+        value="/findEventsById/{id}",
         produces = MediaType.APPLICATION_JSON_VALUE,
         method = RequestMethod.GET
     )
-    public ResponseEntity<Object> findProductsById(@PathVariable Integer id) {
+    public ResponseEntity<Object> findEventsById(@PathVariable Integer id) {
 
         try {
-            Products foundProducts = productService.findById(id);
-            return new ResponseEntity<Object>(foundProducts, HttpStatus.OK);
+            Events foundEvents = eventsService.findById(id);
+            return new ResponseEntity<Object>(foundEvents, HttpStatus.OK);
         } catch (Exception e) {
             System.out.println(e);
             return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -76,8 +75,8 @@ public class ProductController {
     public ResponseEntity<Object> findAll() {
 
         try {
-            List<Products> allProducts = productService.findAll();
-            return new ResponseEntity<Object>(allProducts, HttpStatus.OK);
+            List<Events> allEvents = eventsService.findAll();
+            return new ResponseEntity<Object>(allEvents, HttpStatus.OK);
         } catch (Exception e) {
             System.out.println(e);
             return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -89,16 +88,16 @@ public class ProductController {
     }
 
     @RequestMapping(
-        value="/updateProducts",
+        value="/updateEvents",
         consumes = MediaType.APPLICATION_JSON_VALUE,
         produces = MediaType.APPLICATION_JSON_VALUE,
         method = RequestMethod.POST
     )
-    public ResponseEntity<Object> updateProducts(@RequestBody Products product) {
+    public ResponseEntity<Object> updateEvents(@RequestBody Events product) {
 
         try {
-            Products updatdProducts = productService.update(product);
-            return new ResponseEntity<Object>(updatdProducts, HttpStatus.OK);
+            Events updatdEvents = eventsService.update(product);
+            return new ResponseEntity<Object>(updatdEvents, HttpStatus.OK);
         } catch (Exception e) {
             System.out.println(e);
             return new ResponseEntity<Object>(e.getMessage(), HttpStatus.BAD_REQUEST);
@@ -110,14 +109,14 @@ public class ProductController {
     }
 
     @RequestMapping(
-        value="/deleteProducts/{id}",
+        value="/deleteEvents/{id}",
         method = RequestMethod.DELETE
     )
-    public ResponseEntity<Object> deleteProducts(@PathVariable Integer id) {
+    public ResponseEntity<Object> deleteEvents(@PathVariable Integer id) {
 
         try {
             
-            productService.deleteById(id);
+            eventsService.deleteById(id);
             return new ResponseEntity<Object>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {
             System.out.println(e);
@@ -128,4 +127,5 @@ public class ProductController {
         }
 
     }
+    
 }

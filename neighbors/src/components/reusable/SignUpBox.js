@@ -15,7 +15,7 @@ function SignInBox(props) {
     }
 
     const submitHandler = () => {
-        axios.post("http://localhost:8080/user/signIn", props.user)
+        axios.post("http://localhost:8080/user/signUp", props.user)
         .then((response) => {
             localStorage.setItem("emailCookie", response.data.email)
             props.setUser(response.data)
